@@ -7,6 +7,8 @@
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
   <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <body>
@@ -23,8 +25,8 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="catalog.html">Catalog</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="cart.html">Cart</a></li>
-          <li class="selected"><a href="contact.html">Contact Us</a></li>
+          <li class="selected"><a href="cart.html">Cart</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
     </div>
@@ -39,22 +41,27 @@
         </ul>
       </div>
       <div id="content">
-     
-        <h1>Contact Us</h1>
-        <!-- Script to send email from my our own gmail, that contains the users data. Name, Email and Message -->
-        <form method="POST" class="gform" action="https://script.google.com/macros/s/AKfycbxtHImT1hYhLgrmTgRt_qBtHDKQKDbKMGyxY51V/exec" >
-          <div class="form_settings">
-            <p><span>Name</span><input class="contact" id="name" type="text" name="name" value="" /></p>
-            <p><span>Email</span><input class="contact" id="email" type="email" name="email" value="" /></p>
-            <p><span>Message</span><textarea class="contact textarea" id="message" rows="8" cols="50" name="message"></textarea></p>
-            <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="submit" /></p>
-          </div>
-          <!-- Message that is hidden until the form is submitted, Js script is called when submitted.-->
-          <div style="display:none" class="thankyou_message">
-            <h2><em>Thank you for contacting us! We will get back to you soon!
-            </h2>
-          </div>
-        </form>
+
+        <h1>Would you like any of these products?</h1>
+        <!--    COME BACK TO WHEN ITEM PAGE/ADD TO CART IS FINISHED
+
+        show random items from catalog
+
+        make a items clickable like on item page that directly add them to your cart
+
+        after it takes the user to the checkout -->
+
+
+        <!-- COME BACK TO
+            Change "checkout.html" to whatever the extention is for the checkout page
+            Button is just a redirect to checkout. The other page will do the same but this one is without adding anything additional to cart
+        -->
+        <div class="form_settings">
+            <form action="checkout.html" method="POST" >
+            <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="Go to Checkout" /></p>
+            </form>
+        </div>
+
       </div>
     </div>
     <div id="footer">
