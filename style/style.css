@@ -129,7 +129,7 @@ ol li
 
 #menubar
 { width: 44.5%;
-  height: 72px;
+  height: 525px;
   padding: 24px 23px 0px 23px;
   background: transparent url(transparent_light.png) repeat;} 
 
@@ -207,7 +207,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 #footer
 { width: 44.5%;
   font: normal 100% 'lucida sans unicode', arial, sans-serif;
-  height: 33px;
+  height: 40px;
   padding: 20px 24px 20px 20px;
   text-align: center;
   background: transparent url(transparent_light.png) repeat;
@@ -255,7 +255,10 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   color: #47433F;}
   
 .form_settings .submit
-{ font: 100% arial; 
+{ 
+  display: block;
+  font-family: Arial, Helvetica, sans-serif; 
+  font-weight: 300;
   border: 1px solid; 
   width: 25%; 
   margin: 0 212px 0 0; 
@@ -263,7 +266,8 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   padding: 2px 0 3px 0;
   cursor: pointer; 
   background: #000; 
-  color: #FFF;}
+  color: #FFF;
+}
 
 .form_settings textarea, .form_settings select
 { font: 100% arial; 
