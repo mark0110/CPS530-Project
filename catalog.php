@@ -21,9 +21,9 @@
       <div id="menubar">
         <ul id="menu">
           <li><a href="index.html">Home</a></li>
-          <li class="selected"><a href="http://webdev.scs.ryerson.ca/~e237lee/catalog.php">Catalog</a></li>
+          <li class="selected"><a href="catalog.php">Catalog</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="http://webdev.scs.ryerson.ca/~e237lee/cart.php">Cart</a></li>
+          <li><a href="cart.php">Cart</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
@@ -41,64 +41,41 @@
       
       </div>
       <div id="content">
-		<?php
-		$servername = "localhost";
-		$username = "e237lee";
-		$password = "wrehyzCi";
-		$dbname = "e237lee";
+       <table id="cataTable">
+			<?php 
+			$servername = "localhost";
+			$username = "e237lee";
+			$password = "wrehyzCi";
+			$dbname = "e237lee";
 
 
-		$conn = new mysqli($servername, $username, $password, $dbname);
-		// Check connection
-		if ($conn->connect_error) {
-		  die("Connection failed: " . $conn->connect_error);
-		}
-    
-		session_start();
-		
-		$total = 0;
-		foreach($_SESSION['cart'] as $value){
-		  $name = $value;
-
-		  $sql = "SELECT name,cost FROM songs WHERE name ='" .$name."';";
-			$result = $conn->query($sql);
-		
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) {
+			  die("Connection failed: " . $conn->connect_error);
+			}
 			
+			$sql = "SELECT name,photourl FROM songs";
+			$result = $conn->query($sql);
+
+
 			if ($result->num_rows > 0) {
 				// output data of each row
-				while($row = $result->fetch_assoc()) {
-					echo "<p>Name: " . $row["name"]. "<br> <br>Cost: " . $row["cost"]."</p>";
-					$total = $total + $row['cost'];
-					echo "-----------------";
+				while($row = $result->fetch_assoc()) {	
+					echo " <a href='itempage.php?id=".$row['name']."'>  <img src='" .$row['photourl']. "'  alt='' style='width:100px;height:100px;'> <br> ".$row['name']."</a> <br><br>";
 				}
+
 			} else {
 				echo "0 results";
 			}
-		  
-		}
-		
-		
-    
-		echo "<br>Total cost: " .  $total;
-
-		$conn->close();
-		?>
-		<br><br>
-		<button onclick="document.location='shipping.html'">Check Out</button>
-		<a href="shipping.html">
-	</div>
-
- 
-    
-      
-    
+			$conn->close();
+			?>		
+	   </table>
+      </div>
+    </div>
+    <div id="footer">
+      Made with love in Toronto | <a href="terms.html">Terms and Conditions</a> | <a href="privacy.html">Privacy</a>
+    </div>
   </div>
 </body>
-
-<div id="footer">
-<footer>
-	Made with love in Toronto | <a href="terms.html">Terms and Conditions</a> | <a href="privacy.html">Privacy</a>
-</footer>
-</div>
-
 </html>

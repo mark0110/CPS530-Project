@@ -1,3 +1,17 @@
+<?php
+if(isset($_GET['press'])){
+	session_start();
+    $name = $_GET["id"];
+   
+	if (!isset($_SESSION['cart'])) {
+	$_SESSION['cart'] = array();
+	}
+	array_push($_SESSION['cart'],$name);
+	header("Location: http://webdev.scs.ryerson.ca/~e237lee/cart.php");
+
+	exit();
+}
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -21,9 +35,9 @@
       <div id="menubar">
         <ul id="menu">
           <li><a href="index.html">Home</a></li>
-          <li class="selected"><a href="http://webdev.scs.ryerson.ca/~e237lee/catalog.php">Catalog</a></li>
+          <li class="selected"><a href="catalog.php">Catalog</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="http://webdev.scs.ryerson.ca/~e237lee/cart.php">Cart</a></li>
+          <li><a href="cart.html">Cart</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
@@ -41,54 +55,65 @@
       
       </div>
       <div id="content">
-       <img src="./stlye/musicicon.png" alt="musicicon" style="width:125px;height:125px; ">
-		<br>
 		<?php
 		$servername = "localhost";
 		$username = "e237lee";
 		$password = "wrehyzCi";
 		$dbname = "e237lee";
 
-    session_start();
 
-    $_SESSION['ids'] = 1;
-    $_SESSION[caart] = array();
-    array_push($_SESSION['cart'], $id)
-  
-    $conn = new mysqli($servername, $username, $password, $dbname);
+		$conn = new mysqli($servername, $username, $password, $dbname);
 		// Check connection
 		if ($conn->connect_error) {
 		  die("Connection failed: " . $conn->connect_error);
 		}
 		
-		$sql = "SELECT name,artist,length,description,cost FROM songs";
+		
+		$sql = "SELECT name,artist,cost,description,length,photourl FROM songs WHERE name = '" .$_GET["id"]. "';";
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
-				echo "Name: " . $row["name"]. "<br>Artist: " . $row["artist"]. "<br>Length: " . $row["length"]. "<br>Description: " . $row["decription"]. "<br>Cost: " . $row["cost"];
+
+				echo "<img src='".$row['photourl']."' alt='musicicon' style='width:125px;height:125px; '><br> <p> Name: " . $row["name"]. "<br>Artist: " . $row["artist"]. "<br>Length: " . $row["length"]. "<br>Description: " . $row["description"]. "<br>Cost: " . $row["cost"];
 			}
 		} else {
-			echo "0 results";
+			echo "error retrieving data";
 		}
 		$conn->close();
 		?>
 
-	   <div>
-		<button onclick="document.location='musicPre1.html'">Music Preview</button>
-		<a href="musicPre1.html">
+	    <div>
+		<button onclick="window.location.href='http://webdev.scs.ryerson.ca/~e237lee/musicPreview.php';">Music Preview</button>
 		</div>
 		
 		<div>
-	   <button onclick="document.location='cart.html'">Add To Cart</button>
-	   <a href="cart.html">
-	   </div>
+	    <?php
+//		   session_start();
+//		   $name = $_GET["id"];
+		   
+//			if (!isset($_SESSION['cart'])) {
+//			$_SESSION['cart'] = array();
+//			}
+//			array_push($_SESSION['cart'],$name);
+
+
+		$link = "window.location.href='http://webdev.scs.ryerson.ca/~e237lee/itempage.php?id=" .$_GET["id"]. "&press=true';";	
+		echo "<button onclick=".$link.">Add to Cart</button>";
+		   ?>
+		
+	    </div>
       </div>
-    </div>
-    <div id="footer">
-      Made with love in Toronto | <a href="terms.html">Terms and Conditions</a> | <a href="privacy.html">Privacy</a>
     </div>
   </div>
 </body>
+
+<div id="footer">
+<footer>
+	Made with love in Toronto | <a href="terms.html">Terms and Conditions</a> | <a href="privacy.html">Privacy</a>
+</footer>
+</div>
+
+
 </html>
