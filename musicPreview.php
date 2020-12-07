@@ -60,13 +60,7 @@
 
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
-				echo "<h2>$row["name"]</h2>
-        <div class="container-audio">
-            <audio controls  loop controlsList="nodownload">
-                       <source src=$row["songurl"] type="audio/mp3">
-                       Your browser dose not Support the music preview feature
-                   </audio>
-        </div>"	}
+				echo "<h2>".$row["name"]."</h2> <div class=\"container-audio\"> <audio controls  loop controlsList=\"nodownload\"> <source src=".$row["songurl"]." type=\"audio/mp3\">Your browser dose not Support the music preview feature</audio></div>";	}
 		} else {
 			echo "Not found";
 		}

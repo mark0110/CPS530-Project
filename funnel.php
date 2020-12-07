@@ -1,3 +1,19 @@
+<?php
+if(isset($_GET['press'])){
+	session_start();
+    $name = $_GET["id"];
+   
+	if (!isset($_SESSION['cart'])) {
+	$_SESSION['cart'] = array();
+	}
+	array_push($_SESSION['cart'],$name);
+	header("Location: http://webdev.scs.ryerson.ca/~e237lee/cart.php");
+
+	exit();
+}
+?>
+
+
 <!DOCTYPE HTML>
 <html>
 
@@ -24,7 +40,7 @@
         <ul id="menu">
           <li><a href="./index.php">Home</a></li>
           <li><a href="./catalog.php">Catalog</a></li>
-          <li><a href="./about.html">About</a></li>
+          <li><a href="./about.php">About</a></li>
           <li><a href="./cart.php">Cart</a></li>
           <li><a href="./contact.php">Contact Us</a></li>
         </ul>
@@ -43,19 +59,37 @@
       <div id="content">
 
         <h1>Would you like any of these products?</h1>
-        <!--    COME BACK TO WHEN ITEM PAGE/ADD TO CART IS FINISHED
-
-        show random items from catalog
-
-        make a items clickable like on item page that directly add them to your cart
-
-        after it takes the user to the checkout -->
+        <?php 
+			$servername = "localhost";
+			$username = "e237lee";
+			$password = "wrehyzCi";
+			$dbname = "e237lee";
 
 
-        <!-- COME BACK TO
-            Change "checkout.html" to whatever the extention is for the checkout page
-            Button is just a redirect to checkout. The other page will do the same but this one is without adding anything additional to cart
-        -->
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) {
+			  die("Connection failed: " . $conn->connect_error);
+			}
+			
+			$sql = "SELECT name,photourl,cost FROM funnel";
+			$result = $conn->query($sql);
+
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {	
+					echo "  <img src='" .$row['photourl']. "'  alt='' style='width:100px;height:100px;'> <br> ".$row['name']."<br>cost: ".$row['cost']." <br><br>";
+					$link = "window.location.href='http://webdev.scs.ryerson.ca/~e237lee/funnel.php?id=" .$row["name"]. "&press=true';";	
+					echo "<button onclick=".$link.">Add to Cart</button><br><br>";
+				}
+
+			} else {
+				echo "0 results";
+			}
+			$conn->close();
+			?>
+
         <div class="form_settings">
             <form action="cart.php" method="POST" >
             <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="No Thank You" /></p>

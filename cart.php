@@ -60,7 +60,7 @@
 		foreach($_SESSION['cart'] as $value){
 		  $name = $value;
 
-		  $sql = "SELECT name,cost FROM songs WHERE name ='" .$name."';";
+		  $sql = "SELECT name,cost FROM songs WHERE name ='" .$name."' UNION SELECT name,cost FROM funnel where name = '".$name."';";
 			$result = $conn->query($sql);
 		
 			
@@ -76,6 +76,7 @@
 			}
 		  
 		}
+		
 		
 		
     
