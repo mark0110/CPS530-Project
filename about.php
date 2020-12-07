@@ -41,6 +41,22 @@
       
       </div>
       <div id="content">
+	  
+	  <p>
+
+		Interactive E-commerce Website for Music Sales<br>
+		<br>
+		Mark Volfson - 500740834 - Section 2<br>
+		Armaan Mohammad Ali - 500875679 - Section 2<br>
+		Edwin Lee - 500879414 - Section 2<br>
+		Christopher Ingham - 500707888 - Section 2<br>
+		<br>
+		CPS 530 - Web Systems Development<br>
+		Group 11<br>
+		Professor Maryam Davoudpou<br>
+		December 7th, 2020<br>
+
+	  </p>
        
       </div>
     </div>
