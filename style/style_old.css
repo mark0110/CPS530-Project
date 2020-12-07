@@ -12,7 +12,8 @@ body
 
 p
 { padding: 0 0 20px 0;
-  line-height: 1.7em;}
+  line-height: 1.7em;
+  color: #FFF}
 
 img
 { border: 0;}
@@ -294,3 +295,26 @@ table tr td
 { background: #F0EFE2;
   color: #47433F;
   border-top: 1px solid #FFF;}
+  
+#cataTable{
+  background: transparent;
+  background-color: transparent;
+  color: #FFF;
+  padding: 7px 4px;
+  text-align: left;
+}  
+
+#cataRow{
+	background: transparent;
+  background-color: transparent;
+  color: #FFF;
+	
+}
+
+#cataCol{
+	background: transparent;
+  background-color: transparent;
+  color: #FFF;
+	
+}
+  
