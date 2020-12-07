@@ -28,7 +28,7 @@ if(isset($_GET['press'])){
     <div id="header">
       <div id="logo">
         <div id="logo_text">
-          <h1><a href="index.html">Music<span class="logo_colour"> store</span></a></h1>
+          <h1><a href="https://www.cs.ryerson.ca/~e237lee/index.html">Music<span class="logo_colour"> store</span></a></h1>
           <h2>Advanced music online store</h2>
         </div>
       </div>

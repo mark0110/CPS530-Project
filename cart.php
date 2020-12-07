@@ -14,17 +14,17 @@
     <div id="header">
       <div id="logo">
         <div id="logo_text">
-          <h1><a href="index.html">Music<span class="logo_colour"> store</span></a></h1>
+          <h1><a href="https://www.cs.ryerson.ca/~e237lee/index.html">Music<span class="logo_colour"> store</span></a></h1>
           <h2>Advanced music online store</h2>
         </div>
       </div>
       <div id="menubar">
         <ul id="menu">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="https://www.cs.ryerson.ca/~e237lee/index.html">Home</a></li>
           <li class="selected"><a href="http://webdev.scs.ryerson.ca/~e237lee/catalog.php">Catalog</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="https://www.cs.ryerson.ca/~e237lee/about.html">About</a></li>
           <li><a href="http://webdev.scs.ryerson.ca/~e237lee/cart.php">Cart</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="https://www.cs.ryerson.ca/~e237lee/contact.html">Contact Us</a></li>
         </ul>
       </div>
     </div>
