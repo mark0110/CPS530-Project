@@ -60,11 +60,11 @@
               
               
               <br>
-              <a href= "Thankyou.html"> <button> Confirm Payment</button>
+              <a href= "Thankyou.php"> <button> Confirm Payment</button>
               </a> 
               <br>
               <div>
-                <a href="shipping.html">Back to Billing</a>
+                <a href="shipping.php">Back to Billing</a>
               </div>
     </div>
     

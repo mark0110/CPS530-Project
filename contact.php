@@ -20,7 +20,7 @@
       </div>
       <div id="menubar">
         <ul id="menu">
-          <li><a href="/index.php">Home</a></li>
+          <li><a href="./index.php">Home</a></li>
           <li><a href="./catalog.php">Catalog</a></li>
           <li><a href="./about.php">About</a></li>
           <li><a href="./cart.php">Cart</a></li>
@@ -58,7 +58,7 @@
       </div>
     </div>
     <div id="footer">
-      Made with love in Toronto | <a href="./terms.php">Terms and Conditions</a> | <a href="/privacy.php">Privacy</a>
+      Made with love in Toronto | <a href="./terms.php">Terms and Conditions</a> | <a href="./privacy.php">Privacy</a>
      </div>
   </div>
   <script data-cfasync="false" type="text/javascript" src="form-submission-handler.js"></script>

@@ -21,9 +21,9 @@
       <div id="menubar">
         <ul id="menu">
           <li><a href="./index.php">Home</a></li>
-          <li class="selected"><a href="./catalog.php">Catalog</a></li>
+          <li ><a href="./catalog.php">Catalog</a></li>
           <li><a href="./about.php">About</a></li>
-          <li><a href="./cart.php">Cart</a></li>
+          <li class="selected"><a href="./cart.php">Cart</a></li>
           <li><a href="./contact.php">Contact Us</a></li>
         </ul>
       </div>

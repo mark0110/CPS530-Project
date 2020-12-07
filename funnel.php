@@ -57,8 +57,8 @@
             Button is just a redirect to checkout. The other page will do the same but this one is without adding anything additional to cart
         -->
         <div class="form_settings">
-            <form action="checkout.html" method="POST" >
-            <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="Checkout" /></p>
+            <form action="cart.php" method="POST" >
+            <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="No Thank You" /></p>
             </form>
         </div>
 

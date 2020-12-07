@@ -22,9 +22,9 @@
         <ul id="menu">
           <li class="selected"><a href="./index.php">Home</a></li>
           <li><a href="./catalog.php">Catalog</a></li>
-          <li><a href="./about.html">About</a></li>
+          <li><a href="./about.php">About</a></li>
           <li><a href="./cart.php">Cart</a></li>
-          <li><a href="./contact.html">Contact Us</a></li>
+          <li><a href="./contact.php">Contact Us</a></li>
         </ul>
       </div>
     </div>
