@@ -14,17 +14,17 @@
     <div id="header">
       <div id="logo">
         <div id="logo_text">
-          <h1><a href="index.html">Music<span class="logo_colour"> store</span></a></h1>
+          <h1><a href="./index.php">Music<span class="logo_colour"> store</span></a></h1>
           <h2>Advanced music online store</h2>
         </div>
       </div>
       <div id="menubar">
         <ul id="menu">
-          <li><a href="index.html">Home</a></li>
-          <li class="selected"><a href="http://webdev.scs.ryerson.ca/~e237lee/catalog.php">Catalog</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="http://webdev.scs.ryerson.ca/~e237lee/cart.php">Cart</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="./index.php">Home</a></li>
+          <li class="selected"><a href="./catalog.php">Catalog</a></li>
+          <li><a href="./about.php">About</a></li>
+          <li><a href="./cart.php">Cart</a></li>
+          <li><a href="./contact.php">Contact Us</a></li>
         </ul>
       </div>
     </div>
@@ -33,29 +33,52 @@
         
         <h3>Music for sale</h3>
         <ul>
-          <li><a href="#">Song 1</a></li>
-          <li><a href="#">Song 2</a></li>
-          <li><a href="#">Song 3</a></li>
-          <li><a href="#">Song 4</a></li>
+        <li><a href="http://webdev.scs.ryerson.ca/~e237lee/itempage.php?id=Paradise">Paradise</a></li>
+          <li><a href="http://webdev.scs.ryerson.ca/~e237lee/itempage.php?id=Happiness">Happiness</a></li>
+          <li><a href="http://webdev.scs.ryerson.ca/~e237lee/itempage.php?id=Happiness">Inspiring</a></li>
+          <li><a href="http://webdev.scs.ryerson.ca/~e237lee/itempage.php?id=Happiness">Uplifting</a></li>
         </ul>
       
       </div>
       <div id="content">
 
+      <?php
+		$servername = "localhost";
+		$username = "e237lee";
+		$password = "wrehyzCi";
+		$dbname = "e237lee";
 
 
-    <h2>[Insert song name here]</h2>
-    <div class="container-audio">
-        <audio controls  loop controlsList="nodownload">
-                   <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/new_year_dubstep_minimix.ogg" type="audio/ogg">
-                   Your browser dose not Support the music preview feature
-               </audio>
-    </div>
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+		  die("Connection failed: " . $conn->connect_error);
+		}
+		
+		$sql = "SELECT name, songurl FROM songs WHERE name = '" .$_GET["id"]. "';";
+		$result = $conn->query($sql);
+
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+				echo "<h2>$row["name"]</h2>
+        <div class="container-audio">
+            <audio controls  loop controlsList="nodownload">
+                       <source src=$row["songurl"] type="audio/mp3">
+                       Your browser dose not Support the music preview feature
+                   </audio>
+        </div>"	}
+		} else {
+			echo "Not found";
+		}
+		$conn->close();
+		?>
+
+    
     </div>
       </div>
     </div>
     <div id="footer">
-      Made with love in Toronto | <a href="terms.html">Terms and Conditions</a> | <a href="privacy.html">Privacy</a>
+      Made with love in Toronto | <a href="./terms.php">Terms and Conditions</a> | <a href="./privacy.php">Privacy</a>
     </div>
   </div>
 </body>
