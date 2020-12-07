@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 
@@ -50,8 +49,13 @@
 		$password = "wrehyzCi";
 		$dbname = "e237lee";
 
+    session_start();
 
-		$conn = new mysqli($servername, $username, $password, $dbname);
+    $_SESSION['ids'] = 1;
+    $_SESSION[caart] = array();
+    array_push($_SESSION['cart'], $id)
+  
+    $conn = new mysqli($servername, $username, $password, $dbname);
 		// Check connection
 		if ($conn->connect_error) {
 		  die("Connection failed: " . $conn->connect_error);
